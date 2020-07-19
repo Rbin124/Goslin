@@ -1,0 +1,6 @@
+rootProject.name='Goslin'
+include ':app'
+include ':main'
+include ':live'
+include ':mine'
+include ':commonlibrary'
