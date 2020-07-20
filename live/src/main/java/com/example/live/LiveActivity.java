@@ -22,6 +22,7 @@ public class LiveActivity extends BaseActivity<MainContract.Prensenter> implemen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_live);
         ButterKnife.bind(this);
+        Log.d("---BUID---",BuildConfig.API_HOST);
         mPresenter.getPublicAccountList();
     }
 

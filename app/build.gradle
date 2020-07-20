@@ -15,7 +15,15 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("boolean", "LOG_DEBUG", "true")
+            buildConfigField ("String", "API_HOST", '"www.baidu.com"')
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
         release {
+            buildConfigField("boolean", "LOG_DEBUG", "false")
+            buildConfigField ("String", "API_HOST", '"www.facebook.com"')
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
