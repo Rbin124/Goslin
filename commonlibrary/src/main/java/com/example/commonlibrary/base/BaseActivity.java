@@ -29,13 +29,5 @@ public abstract class BaseActivity<T extends BasePresenter> extends RxAppCompatA
         return lifecycleSubject;
     }
 
-    @Override
-    public void showLoading() {
-        Log.d("======Loading======","======showLoading=====");
-    }
 
-    @Override
-    public void hideLoading() {
-        Log.d("======Loading======","======hideLoading=====");
-    }
 }

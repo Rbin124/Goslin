@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/tv"
+        android:id="@+id/tv2"
         android:layout_width="@dimen/dp_348"
         android:layout_height="wrap_content"
         android:text="Hello Live"
@@ -15,5 +15,14 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <com.classic.common.MultipleStatusView
+        android:id="@+id/simple"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

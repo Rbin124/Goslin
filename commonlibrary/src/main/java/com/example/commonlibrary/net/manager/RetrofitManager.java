@@ -24,7 +24,7 @@ public class RetrofitManager {
     private RetrofitManager() {
         mRetrofit = new Retrofit.Builder()
                 //设置baseUrl
-                .baseUrl("http://wanandroid.com/")
+                .baseUrl("https://shop.yuelvhui.com")
                 //设置OkHttpClient对象
                 .client(createOkhttpClient())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create()) // 支持RxJava
