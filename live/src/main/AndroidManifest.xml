@@ -4,15 +4,14 @@
 
     <application
 
-        android:theme="@style/AppTheme">
+        android:theme="@style/MyAppTheme">
         <activity android:name=".MainActivity">
 
 
         </activity>
-        <activity android:name=".LiveActivity">
+        <activity android:name=".LiveActivity"/>
 
 
-        </activity>
     </application>
 
 </manifest>

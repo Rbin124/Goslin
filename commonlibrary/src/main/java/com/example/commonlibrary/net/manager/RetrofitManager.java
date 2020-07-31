@@ -2,6 +2,7 @@ package com.example.commonlibrary.net.manager;
 
 import com.example.commonlibrary.BuildConfig;
 import com.example.commonlibrary.net.interceptor.BaseInterceptor;
+import com.example.commonlibrary.net.interceptor.HttpLogger;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
@@ -37,7 +38,7 @@ public class RetrofitManager {
     * 创建OkHttpClient对象。Retrofit底层基于OkHttpClient进行网络请求。
     * */
     private OkHttpClient createOkhttpClient() {
-        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
+        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor(new HttpLogger());
         httpLoggingInterceptor.setLevel(BuildConfig.DEBUG ? HttpLoggingInterceptor.Level.BODY : HttpLoggingInterceptor.Level.NONE);
         return new OkHttpClient.Builder()
                 //设置连接超时时间
@@ -47,6 +48,7 @@ public class RetrofitManager {
                 .writeTimeout(30, TimeUnit.SECONDS)
                 //添加日志过滤器
                 .addInterceptor(httpLoggingInterceptor)
+                .addNetworkInterceptor(httpLoggingInterceptor)
                 //添加BaseInterceptor过滤器
                 .addInterceptor(new BaseInterceptor())
                 .build();

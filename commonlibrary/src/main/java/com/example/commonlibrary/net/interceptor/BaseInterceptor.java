@@ -1,5 +1,7 @@
 package com.example.commonlibrary.net.interceptor;
 
+import android.os.Build;
+
 import androidx.annotation.NonNull;
 import java.io.IOException;
 import okhttp3.FormBody;
@@ -37,6 +39,9 @@ public class BaseInterceptor implements Interceptor {
                         .post(formBody)
                         .addHeader("Content-Type", "application/json;charset=UTF-8")
                         .addHeader("User-Agent", "android")
+                        .addHeader("model", Build.MODEL)
+                        .addHeader("brand", Build.BRAND)
+                        .addHeader("clientType", "APP")
                         .build();
             }
             return chain.proceed(request);
@@ -53,7 +58,10 @@ public class BaseInterceptor implements Interceptor {
                     .method(request.method(), request.body())
                     .url(urlBuilder.build())
                     .addHeader("Content-Type", "application/json;charset=UTF-8")
-                    .addHeader("User-Agent", "android");
+                    .addHeader("User-Agent", "android")
+                    .addHeader("model", Build.MODEL)
+                    .addHeader("brand", Build.BRAND)
+                    .addHeader("clientType", "APP");
 
             return chain.proceed(newBuilder.build());
         }

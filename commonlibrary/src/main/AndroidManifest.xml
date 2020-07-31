@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.commonlibrary" >
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.commonlibrary">
 
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -23,5 +24,6 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <!-- 允许应用访问震动器 -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-sdk tools:overrideLibrary="com.donkingliang.consecutivescroller"/>
 
 </manifest>

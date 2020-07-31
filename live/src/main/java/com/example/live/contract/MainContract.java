@@ -55,7 +55,6 @@ public class MainContract {
 
                         @Override
                         public void error(NetException.ResponseException e) {
-
                         }
                     });
         }

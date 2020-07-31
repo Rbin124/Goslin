@@ -78,6 +78,8 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies.butterknife_compiler
     api rootProject.ext.dependencies.banner
     api rootProject.ext.dependencies.multiple_status_view
+    api rootProject.ext.dependencies.consecutive_scroller
+    api rootProject.ext.dependencies.SmartRefreshLayout
 
     //router
     api rootProject.ext.dependencies.arouter_api

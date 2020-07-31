@@ -31,7 +31,7 @@ public class LiveActivity extends BaseActivity<MainContract.Prensenter> implemen
         ButterKnife.bind(this);
         Log.d("---BUID---", BuildConfig.API_HOST);
         simple = findViewById(R.id.simple);
-        mPresenter.getPublicAccountList();
+//        mPresenter.getPublicAccountList();
         mPresenter.getCpsPDDIndex("1172861");
 
 
