@@ -2,12 +2,11 @@ package com.example.live;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.classic.common.MultipleStatusView;
-import com.example.commonlibrary.base.BaseActivity;
+import com.example.commonlibrary.base.BaseMvpActivity;
 import com.example.live.bean.CpsIndexTBBean;
 import com.example.live.bean.PublicAccountBean;
 import com.example.live.contract.MainContract;
@@ -16,7 +15,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 @Route(path = "/live/list")
-public class LiveActivity extends BaseActivity<MainContract.Prensenter> implements MainContract.IView {
+public class LiveActivity extends BaseMvpActivity<MainContract.Prensenter> implements MainContract.IView {
 
 
     @BindView(R2.id.tv2)
@@ -29,13 +28,21 @@ public class LiveActivity extends BaseActivity<MainContract.Prensenter> implemen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_live);
         ButterKnife.bind(this);
-        Log.d("---BUID---", BuildConfig.API_HOST);
+    }
+
+    @Override
+    protected int initLayout() {
+        return R.layout.activity_live;
+    }
+
+    @Override
+    protected void initView() {
         simple = findViewById(R.id.simple);
-//        mPresenter.getPublicAccountList();
+    }
+
+    @Override
+    protected void initData() {
         mPresenter.getCpsPDDIndex("1172861");
-
-
-
     }
 
     @Override
