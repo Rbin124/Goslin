@@ -1,7 +1,7 @@
 ext {
     android = [
             compileSdkVersion: 29,
-            buildToolsVersion: "26.0.2",
+            buildToolsVersion: "28.0.3",
             applicationId    : "com.example.goslin",
             minSdkVersion    : 16,
             targetSdkVersion : 29,
@@ -44,8 +44,8 @@ ext {
             "interceptor"         : "com.squareup.okhttp3:logging-interceptor:3.14.0",
 
             //ui
-            "butterknife"         : "com.jakewharton:butterknife:8.8.1",
-            "butterknife_compiler": "com.jakewharton:butterknife-compiler:10.1.0",
+            "butterknife"         : "com.jakewharton:butterknife:10.2.1",
+            "butterknife_compiler": "com.jakewharton:butterknife-compiler:10.2.1",
             "BaseAdapterHelper"   : "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30",
             "glide"               : "com.github.bumptech.glide:glide:4.0.0-RC1",
             "banner"              : "com.youth.banner:banner:1.4.10",

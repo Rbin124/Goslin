@@ -74,7 +74,7 @@ dependencies {
     api rootProject.ext.dependencies.interceptor
 
     //ui
-    annotationProcessor rootProject.ext.dependencies.butterknife
+    api rootProject.ext.dependencies.butterknife
     annotationProcessor rootProject.ext.dependencies.butterknife_compiler
     api rootProject.ext.dependencies.banner
     api rootProject.ext.dependencies.multiple_status_view
