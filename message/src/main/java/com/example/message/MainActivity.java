@@ -1,4 +1,4 @@
-package com.example.live;
+package com.example.message;
 
 import androidx.appcompat.app.AppCompatActivity;
 

@@ -31,7 +31,6 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        mRecyclerView = findViewById(R.id.mRecyclerView);
         mRecyclerView.setAdapter(new SplashAdapter(this));
         mRecyclerView.setLayoutManager(new ScollLinearLayoutManager(this));
 

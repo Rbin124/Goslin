@@ -39,8 +39,11 @@ android {
 dependencies {
     implementation project(':commonlibrary')
     if (!isModule.toBoolean()) {
+        implementation project(':home')
         implementation project(':live')
         implementation project(':main')
         implementation project(':mine')
+        implementation project(':message')
+
     }
 }

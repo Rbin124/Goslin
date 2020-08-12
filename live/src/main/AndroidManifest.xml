@@ -5,7 +5,7 @@
     <application
 
         android:theme="@style/MyAppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".LiveTestActivity">
 
 
         </activity>
