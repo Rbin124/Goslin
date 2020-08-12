@@ -25,7 +25,6 @@ public class MainActivity extends BaseActivity {
     @BindView(R2.id.stl)
     CommonTabLayout stl;
     private ArrayList<Fragment> mFragments = new ArrayList<>();
-    private ArrayList<Fragment> mFragments2 = new ArrayList<>();
 
     private String[] mTitles = {"首页", "消息", "联系人", "更多"};
     private int[] mIconUnselectIds = {
@@ -54,17 +53,17 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         ARouter.getInstance().inject(this);
-        mFragments2.add(homeProvider.createFragment());
+        mFragments.add(homeProvider.createFragment());
         Bundle bundle = new Bundle();
         bundle.putString("position","我是直播夜");
-        mFragments2.add(liveProvider.createFragment("我是直播夜",1));
-        mFragments2.add(messageProvider.createFragment());
-        mFragments2.add(mineProvider.createFragment());
+        mFragments.add(liveProvider.createFragment("我是直播夜",1));
+        mFragments.add(messageProvider.createFragment());
+        mFragments.add(mineProvider.createFragment());
 
         for (int i = 0; i < mTitles.length; i++) {
             mTabEntities.add(new TabEntity(mTitles[i], mIconSelectIds[i], mIconUnselectIds[i]));
         }
-        stl.setTabData(mTabEntities,this,R.id.fl_content,mFragments2);
+        stl.setTabData(mTabEntities,this,R.id.fl_content,mFragments);
 
         stl.setOnTabSelectListener(new OnTabSelectListener() {
             @Override

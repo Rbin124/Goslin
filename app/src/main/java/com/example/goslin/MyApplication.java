@@ -1,5 +1,7 @@
 package com.example.goslin;
 
+import androidx.multidex.MultiDex;
+
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.commonlibrary.base.BaseApplication;
 
@@ -13,7 +15,6 @@ public class MyApplication extends BaseApplication {
         ARouter.openDebug();
         ARouter.openLog();
         ARouter.init(this);
+        MultiDex.install(this);
     }
-
-
 }

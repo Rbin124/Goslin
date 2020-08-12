@@ -12,6 +12,7 @@ android {
         versionName rootProject.ext.android.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -46,4 +47,5 @@ dependencies {
         implementation project(':message')
 
     }
+    implementation 'com.android.support:multidex:1.0.3'
 }
