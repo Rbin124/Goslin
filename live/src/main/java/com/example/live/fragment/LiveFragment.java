@@ -1,6 +1,7 @@
 package com.example.live.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,6 +50,7 @@ public class LiveFragment extends BaseMVPFragment<LiveFragmentPresenter> impleme
     @Override
     protected void loadData() {
         mPresenter.request("1172861", "3788", 1, 10);
+        Log.d("--loadData--","--LiveFragment--");
     }
 
 

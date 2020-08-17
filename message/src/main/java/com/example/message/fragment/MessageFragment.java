@@ -1,5 +1,7 @@
 package com.example.message.fragment;
 
+import android.util.Log;
+
 import com.example.commonlibrary.base.BaseFragment;
 import com.example.message.R;
 
@@ -21,6 +23,11 @@ public class MessageFragment extends BaseFragment {
 
     @Override
     protected void loadData() {
+        Log.d("--loadData--","--MessageFragment--");
+    }
 
+    @Override
+    protected void onFragmentVisibleChange(boolean isVisible) {
+        Log.d("-onChange-",isVisible + "");
     }
 }

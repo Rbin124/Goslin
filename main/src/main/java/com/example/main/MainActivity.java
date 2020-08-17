@@ -11,6 +11,8 @@ import com.example.commonlibrary.router.HomeProvider;
 import com.example.commonlibrary.router.LiveProvider;
 import com.example.commonlibrary.router.MessageProvider;
 import com.example.commonlibrary.router.MineProvider;
+import com.example.commonlibrary.weight.NoScrollViewPager;
+import com.example.commonlibrary.weight.WallpaperPaperAdapter;
 import com.example.main.bean.TabEntity;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
@@ -24,6 +26,8 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R2.id.stl)
     CommonTabLayout stl;
+    @BindView(R2.id.no_scroll_vp)
+    NoScrollViewPager noScrollVp;
     private ArrayList<Fragment> mFragments = new ArrayList<>();
 
     private String[] mTitles = {"首页", "消息", "联系人", "更多"};
@@ -42,7 +46,7 @@ public class MainActivity extends BaseActivity {
     MessageProvider messageProvider;
     @Autowired
     LiveProvider liveProvider;
-
+    private WallpaperPaperAdapter wallpaperPaperAdapter;
 
 
     @Override
@@ -55,20 +59,23 @@ public class MainActivity extends BaseActivity {
         ARouter.getInstance().inject(this);
         mFragments.add(homeProvider.createFragment());
         Bundle bundle = new Bundle();
-        bundle.putString("position","我是直播夜");
-        mFragments.add(liveProvider.createFragment("我是直播夜",1));
+        bundle.putString("position", "我是直播夜");
+        mFragments.add(liveProvider.createFragment("我是直播夜", 1));
         mFragments.add(messageProvider.createFragment());
         mFragments.add(mineProvider.createFragment());
+
+        wallpaperPaperAdapter = new WallpaperPaperAdapter(getSupportFragmentManager(), mFragments);
+        noScrollVp.setAdapter(wallpaperPaperAdapter);
 
         for (int i = 0; i < mTitles.length; i++) {
             mTabEntities.add(new TabEntity(mTitles[i], mIconSelectIds[i], mIconUnselectIds[i]));
         }
-        stl.setTabData(mTabEntities,this,R.id.fl_content,mFragments);
+        stl.setTabData(mTabEntities);
 
         stl.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelect(int position) {
-
+                noScrollVp.setCurrentItem(position);
             }
 
             @Override
@@ -82,6 +89,4 @@ public class MainActivity extends BaseActivity {
     protected void initData() {
 
     }
-
-
 }

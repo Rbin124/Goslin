@@ -2,6 +2,8 @@ package com.example.mine.fragment;
 
 
 
+import android.util.Log;
+
 import com.example.commonlibrary.base.BaseFragment;
 import com.example.mine.R;
 
@@ -25,8 +27,6 @@ public class MineFragment extends BaseFragment {
 
     @Override
     protected void loadData() {
-
+        Log.d("--loadData--","--MineFragment--");
     }
-
-
 }

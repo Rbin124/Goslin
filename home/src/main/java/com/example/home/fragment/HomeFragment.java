@@ -39,7 +39,6 @@ public class HomeFragment extends BaseMVPFragment<HomeFragmentPresenter> impleme
 
     @Override
     protected void loadData() {
-        mPresenter.request("1172861", "3788", 1, 10);
         mPresenter.request2("1172861");
     }
 
@@ -51,7 +50,6 @@ public class HomeFragment extends BaseMVPFragment<HomeFragmentPresenter> impleme
 
     @Override
     public void onResponse(List<CpsIndexTBListBean> data) {
-//        tv2.setText(data.get(2).title);
     }
 
     @Override
@@ -64,4 +62,8 @@ public class HomeFragment extends BaseMVPFragment<HomeFragmentPresenter> impleme
 
     }
 
+    @Override
+    public void showLoading() {
+        super.showLoading();
+    }
 }
