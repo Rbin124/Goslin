@@ -1,10 +1,7 @@
 package com.example.message.fragment;
 
-import android.os.Bundle;
-
 import com.example.commonlibrary.base.BaseFragment;
 import com.example.message.R;
-
 
 /**
  * Created by ${xinGen} on 2018/5/3 0003.
@@ -17,7 +14,6 @@ public class MessageFragment extends BaseFragment {
         return new MessageFragment();
     }
 
-
     @Override
     public int getLayout() {
         return R.layout.message_fragment;
@@ -27,6 +23,4 @@ public class MessageFragment extends BaseFragment {
     protected void loadData() {
 
     }
-
-
 }
