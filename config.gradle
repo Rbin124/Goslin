@@ -39,7 +39,7 @@ ext {
             "rxandroid"           : "io.reactivex.rxjava2:rxandroid:2.1.0",
             "rxbinding2"          : "com.jakewharton.rxbinding2:rxbinding:2.1.1",
             "rxlifecycle2"        : "com.trello.rxlifecycle2:rxlifecycle:2.2.1",
-            "rxlifecomponents"    : "com.trello.rxlifecycle2:rxlifecycle-components:2.2.1",
+            "rxlifecomponents"    : "com.trello.rxlifecycle3:rxlifecycle-components:3.0.0",
             "rxjava2_adapter"     : "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0",
             "interceptor"         : "com.squareup.okhttp3:logging-interceptor:3.14.0",
 

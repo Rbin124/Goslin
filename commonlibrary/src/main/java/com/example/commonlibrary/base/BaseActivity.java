@@ -5,7 +5,8 @@ import android.view.inputmethod.InputMethodManager;
 
 import androidx.annotation.Nullable;
 
-import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
+
+import com.trello.rxlifecycle3.components.support.RxAppCompatActivity;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;

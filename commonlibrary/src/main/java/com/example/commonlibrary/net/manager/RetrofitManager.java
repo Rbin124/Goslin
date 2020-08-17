@@ -14,30 +14,30 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class RetrofitManager {
     private Retrofit mRetrofit;
 
-    private static class InstanceHelper {
-        static RetrofitManager instance = new RetrofitManager();
-    }
-
-    public static RetrofitManager getInstance() {
-        return InstanceHelper.instance;
-    }
-
-    private RetrofitManager() {
-        mRetrofit = new Retrofit.Builder()
-                //设置baseUrl
-                .baseUrl("https://shop.yuelvhui.com")
-                //设置OkHttpClient对象
-                .client(createOkhttpClient())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create()) // 支持RxJava
-                .addConverterFactory(GsonConverterFactory.create()) // 支持Gson解析
-                .addConverterFactory(ScalarsConverterFactory.create())//支持字符串
-                .build();
-    }
+//    private static class InstanceHelper {
+//        static RetrofitManager instance = new RetrofitManager();
+//    }
+//
+//    public static RetrofitManager getInstance() {
+//        return InstanceHelper.instance;
+//    }
+//
+//    private RetrofitManager() {
+//        mRetrofit = new Retrofit.Builder()
+//                //设置baseUrl
+//                .baseUrl("https://shop.yuelvhui.com")
+//                //设置OkHttpClient对象
+//                .client(createOkhttpClient())
+//                .addCallAdapterFactory(RxJava2CallAdapterFactory.create()) // 支持RxJava
+//                .addConverterFactory(GsonConverterFactory.create()) // 支持Gson解析
+//                .addConverterFactory(ScalarsConverterFactory.create())//支持字符串
+//                .build();
+//    }
 
     /*
     * 创建OkHttpClient对象。Retrofit底层基于OkHttpClient进行网络请求。
     * */
-    private OkHttpClient createOkhttpClient() {
+    private static OkHttpClient createOkhttpClient() {
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor(new HttpLogger());
         httpLoggingInterceptor.setLevel(BuildConfig.DEBUG ? HttpLoggingInterceptor.Level.BODY : HttpLoggingInterceptor.Level.NONE);
         return new OkHttpClient.Builder()
@@ -54,7 +54,25 @@ public class RetrofitManager {
                 .build();
     }
 
-    public <T> T createApi(final Class<T> service) {
-        return mRetrofit.create(service);
+//    public <T> T createApi(final Class<T> service) {
+//        return mRetrofit.create(service);
+//    }
+
+    /**
+     * 获取Service
+     * 请求接口通用
+     *
+     * @param clazz
+     * @param <T>
+     * @return
+     */
+    public static <T> T create(Class<T> clazz) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://shop.yuelvhui.com")
+                .client(createOkhttpClient())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create()) // 支持RxJava
+                .addConverterFactory(GsonConverterFactory.create()) // 支持Gson解析
+                .build();
+        return retrofit.create(clazz);
     }
 }

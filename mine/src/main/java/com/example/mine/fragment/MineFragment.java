@@ -1,6 +1,6 @@
 package com.example.mine.fragment;
 
-import android.os.Bundle;
+
 
 import com.example.commonlibrary.base.BaseFragment;
 import com.example.mine.R;
@@ -16,14 +16,16 @@ public class MineFragment extends BaseFragment {
     public static MineFragment newInstance(){
         return new MineFragment();
     }
-    @Override
-    public void init(Bundle savedInstanceState) {
 
-    }
 
     @Override
     public int getLayout() {
         return R.layout.mine_fragment;
+    }
+
+    @Override
+    protected void loadData() {
+
     }
 
 

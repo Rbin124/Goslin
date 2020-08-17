@@ -16,14 +16,16 @@ public class MessageFragment extends BaseFragment {
     public static MessageFragment newInstance(){
         return new MessageFragment();
     }
-    @Override
-    public void init(Bundle savedInstanceState) {
 
-    }
 
     @Override
     public int getLayout() {
         return R.layout.message_fragment;
+    }
+
+    @Override
+    protected void loadData() {
+
     }
 
 

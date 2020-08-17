@@ -1,13 +1,13 @@
-package com.example.live.api;
-
+package com.example.home.api;
 
 import com.example.commonlibrary.base.BaseBean;
-import com.example.live.bean.CpsIndexTBBean;
-import com.example.live.bean.CpsIndexTBListBean;
-import com.example.live.bean.PublicAccountBean;
+import com.example.home.bean.CpsIndexTBBean;
+import com.example.home.bean.CpsIndexTBListBean;
+import com.example.home.bean.PublicAccountBean;
 
 import java.util.List;
 import java.util.Map;
+
 import io.reactivex.Observable;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
@@ -17,7 +17,8 @@ import retrofit2.http.Query;
 public interface API {
     /**
      * 获取公众号列表
-     * @return  Observable<PublicAccountBean>
+     *
+     * @return Observable<PublicAccountBean>
      */
     @POST("wxarticle/chapters/json")
     @FormUrlEncoded
@@ -25,7 +26,8 @@ public interface API {
 
     /**
      * 获取公众号列表
-     * @return  Observable<PublicAccountBean>
+     *
+     * @return Observable<PublicAccountBean>
      */
     @POST("wxarticle/chapters/json")
     @FormUrlEncoded
@@ -37,7 +39,7 @@ public interface API {
      * @return
      */
     @POST("/outside/pddHomeIndex")
-    Observable<CpsIndexTBBean>getCpsPDDIndex(@Query("uid") String uid);
+    Observable<BaseBean<CpsIndexTBBean>> getCpsPDDIndex(@Query("uid") String uid);
 
     /***
      * 淘宝分类id
@@ -45,6 +47,6 @@ public interface API {
      * @return
      */
     @POST("/outside/tbHomeSearchGoodsList")
-    Observable<BaseBean<List<CpsIndexTBListBean>>>getPDDCategoryList(@Query("mid") String uid, @Query("id") String id, @Query("page") int page, @Query("pageSize") int pageSize);
+    Observable<BaseBean<List<CpsIndexTBListBean>>> getPDDCategoryList(@Query("mid") String uid, @Query("id") String id, @Query("page") int page, @Query("pageSize") int pageSize);
 
 }

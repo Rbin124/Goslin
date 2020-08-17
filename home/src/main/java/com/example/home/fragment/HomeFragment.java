@@ -1,9 +1,19 @@
 package com.example.home.fragment;
 
-import android.os.Bundle;
 
-import com.example.commonlibrary.base.BaseFragment;
+import android.widget.TextView;
+
+import com.example.commonlibrary.base.BaseMVPFragment;
 import com.example.home.R;
+import com.example.home.R2;
+import com.example.home.bean.CpsIndexTBBean;
+import com.example.home.bean.CpsIndexTBListBean;
+import com.example.home.contract.HomeFragmentContract;
+import com.example.home.presenter.HomeFragmentPresenter;
+
+import java.util.List;
+
+import butterknife.BindView;
 
 
 /**
@@ -11,15 +21,15 @@ import com.example.home.R;
  * 博客：https://blog.csdn.net/hexingen
  */
 
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseMVPFragment<HomeFragmentPresenter> implements HomeFragmentContract.View {
 
-    public static HomeFragment newInstance(){
+
+    @BindView(R2.id.tv2)
+    TextView tv2;
+
+    public static HomeFragment newInstance() {
         HomeFragment homeFragment = new HomeFragment();
         return homeFragment;
-    }
-    @Override
-    public void init(Bundle savedInstanceState) {
-
     }
 
     @Override
@@ -27,5 +37,31 @@ public class HomeFragment extends BaseFragment {
         return R.layout.home_fragment;
     }
 
+    @Override
+    protected void loadData() {
+        mPresenter.request("1172861", "3788", 1, 10);
+        mPresenter.request2("1172861");
+    }
+
+
+    @Override
+    protected void initInjector() {
+        mPresenter = new HomeFragmentPresenter();
+    }
+
+    @Override
+    public void onResponse(List<CpsIndexTBListBean> data) {
+//        tv2.setText(data.get(2).title);
+    }
+
+    @Override
+    public void onResponse2(CpsIndexTBBean data) {
+        tv2.setText(data.bannerData.get(0).name);
+    }
+
+    @Override
+    public void onError(String error) {
+
+    }
 
 }
