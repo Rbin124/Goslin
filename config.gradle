@@ -54,9 +54,12 @@ ext {
             "SmartRefreshLayout"  : "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0",
             "FlycoTabLayout_Lib"  :'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar',
 
-
             //alibaba
             "arouter_api"         : "com.alibaba:arouter-api:1.4.1",
             "arouter_compiler"    : "com.alibaba:arouter-compiler:1.1.4",
+
+            //log
+            "logger"              : "com.orhanobut:logger:1.15",
+
     ]
 }

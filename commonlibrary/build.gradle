@@ -86,4 +86,7 @@ dependencies {
     api rootProject.ext.dependencies.arouter_api
     annotationProcessor rootProject.ext.dependencies.arouter_compiler
 
+    //log
+    api rootProject.ext.dependencies.logger
+
 }
