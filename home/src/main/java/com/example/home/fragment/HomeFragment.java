@@ -3,6 +3,7 @@ package com.example.home.fragment;
 
 import android.widget.TextView;
 
+import com.example.commonbusiness.ui.CommonDialog;
 import com.example.commonlibrary.base.BaseMVPFragment;
 import com.example.home.R;
 import com.example.home.R2;
@@ -40,6 +41,7 @@ public class HomeFragment extends BaseMVPFragment<HomeFragmentPresenter> impleme
     @Override
     protected void loadData() {
         mPresenter.request2("1172861");
+        CommonDialog.show(mActivity,null);
     }
 
 
