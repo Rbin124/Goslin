@@ -81,6 +81,7 @@ dependencies {
     api rootProject.ext.dependencies.consecutive_scroller
     api rootProject.ext.dependencies.SmartRefreshLayout
     api rootProject.ext.dependencies.FlycoTabLayout_Lib
+    api rootProject.ext.dependencies.material_dialogs
 
     //router
     api rootProject.ext.dependencies.arouter_api

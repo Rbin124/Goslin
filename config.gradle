@@ -60,6 +60,7 @@ ext {
 
             //log
             "logger"              : "com.orhanobut:logger:1.15",
+            "material_dialogs"    : "com.afollestad.material-dialogs:core:0.9.6.0",
 
     ]
 }
