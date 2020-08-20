@@ -1,8 +1,8 @@
 package com.example.commonlibrary.net.manager;
 
 import com.example.commonlibrary.BuildConfig;
-import com.example.commonlibrary.net.interceptor.BaseInterceptor;
 import com.example.commonlibrary.net.interceptor.HttpLogger;
+import com.example.commonlibrary.net.interceptor.RequestInterceptor;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
@@ -25,7 +25,7 @@ public class RetrofitManager {
                 .readTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
                 //添加日志过滤器
-                .addInterceptor(new BaseInterceptor())
+                .addInterceptor(new RequestInterceptor())
                 .addNetworkInterceptor(httpLoggingInterceptor)
                 //添加BaseInterceptor过滤器
                 .build();
