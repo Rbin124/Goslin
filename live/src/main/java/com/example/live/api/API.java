@@ -5,10 +5,12 @@ import com.example.commonlibrary.base.BaseBean;
 import com.example.live.bean.CpsIndexTBBean;
 import com.example.live.bean.CpsIndexTBListBean;
 import com.example.live.bean.PublicAccountBean;
+import com.example.live.bean.SearchScreenBean;
 
 import java.util.List;
 import java.util.Map;
 import io.reactivex.Observable;
+import retrofit2.http.Body;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
@@ -46,5 +48,13 @@ public interface API {
      */
     @POST("/outside/tbHomeSearchGoodsList")
     Observable<BaseBean<List<CpsIndexTBListBean>>>getPDDCategoryList(@Query("mid") String uid, @Query("id") String id, @Query("page") int page, @Query("pageSize") int pageSize);
+
+    /***
+     * 搜索筛选
+     * @param
+     * @return
+     */
+    @POST("/mall/search/v2/screen")
+    Observable<BaseBean<SearchScreenBean>> getSearchScreenList(@Body Map<String, Object> map);
 
 }

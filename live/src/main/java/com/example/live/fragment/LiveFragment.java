@@ -2,22 +2,19 @@ package com.example.live.fragment;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.commonlibrary.base.BaseMVPFragment;
 import com.example.live.R;
 import com.example.live.R2;
 import com.example.live.bean.CpsIndexTBListBean;
+import com.example.live.bean.SearchScreenBean;
 import com.example.live.contract.LiveFragmentContract;
 import com.example.live.presenter.LiveFragmentPresenter;
 
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 
@@ -49,8 +46,7 @@ public class LiveFragment extends BaseMVPFragment<LiveFragmentPresenter> impleme
 
     @Override
     protected void loadData() {
-        mPresenter.request("1172861", "3788", 1, 10);
-        Log.d("--loadData--","--LiveFragment--");
+        mPresenter.getScreenList("1172861", "all", "牛肉干", 0, 0);
     }
 
 
@@ -62,6 +58,11 @@ public class LiveFragment extends BaseMVPFragment<LiveFragmentPresenter> impleme
     @Override
     public void onResponse(List<CpsIndexTBListBean> data) {
         tv2.setText(data.get(0).title);
+    }
+
+    @Override
+    public void onResponseScreenList(SearchScreenBean screenBean) {
+        Log.d("--loadData--",screenBean.brandList.title);
     }
 
     @Override
