@@ -1,9 +1,12 @@
 package com.example.home.fragment;
 
 
+import android.util.Log;
 import android.widget.TextView;
 
-import com.example.commonbusiness.ui.CommonDialog;
+import com.example.commonbusiness.pay.PayListenerUtils;
+import com.example.commonbusiness.pay.PayResultListener;
+import com.example.commonbusiness.pay.PayUtils;
 import com.example.commonlibrary.base.BaseMVPFragment;
 import com.example.home.R;
 import com.example.home.R2;
@@ -22,7 +25,7 @@ import butterknife.BindView;
  * 博客：https://blog.csdn.net/hexingen
  */
 
-public class HomeFragment extends BaseMVPFragment<HomeFragmentPresenter> implements HomeFragmentContract.View {
+public class HomeFragment extends BaseMVPFragment<HomeFragmentPresenter> implements HomeFragmentContract.View, PayResultListener {
 
 
     @BindView(R2.id.tv2)
@@ -40,8 +43,11 @@ public class HomeFragment extends BaseMVPFragment<HomeFragmentPresenter> impleme
 
     @Override
     protected void loadData() {
+        PayListenerUtils.getInstance().addListener(this);
+        tv2.setOnClickListener(v -> PayUtils.getInstance().toWXPay(""));
+
         mPresenter.request2("1172861");
-        CommonDialog.show(mActivity,null);
+//        CommonDialog.show(mActivity,null);
     }
 
 
@@ -67,5 +73,21 @@ public class HomeFragment extends BaseMVPFragment<HomeFragmentPresenter> impleme
     @Override
     public void showLoading() {
         super.showLoading();
+    }
+
+    @Override
+    public void onPaySuccess() {
+        Log.d("--pay--","onPaySuccess");
+    }
+
+    @Override
+    public void onPayError() {
+        Log.d("--pay--","onPayError");
+    }
+
+    @Override
+    public void onPayCancel() {
+        Log.d("--pay--","onPayCancel");
+
     }
 }

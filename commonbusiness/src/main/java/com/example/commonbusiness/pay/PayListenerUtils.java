@@ -1,27 +1,18 @@
 package com.example.commonbusiness.pay;
 
-import android.content.Context;
-
 import java.util.ArrayList;
 
 public class PayListenerUtils {
+
     private static PayListenerUtils instance;
-    private Context mContext;
 
     private final static ArrayList<PayResultListener> resultList = new ArrayList<>();
 
+    private PayListenerUtils() { }
 
-
-
-    private PayListenerUtils(Context context) {
-        this.mContext = context;
-        //TODO
-
-    }
-
-    public synchronized static PayListenerUtils getInstance(Context context) {
+    public synchronized static PayListenerUtils getInstance() {
         if (instance == null) {
-            instance = new PayListenerUtils(context);
+            instance = new PayListenerUtils();
         }
         return instance;
     }
@@ -38,19 +29,19 @@ public class PayListenerUtils {
         }
     }
 
-    public void addSuccess() {
+    public void paySuccess() {
         for (PayResultListener listener : resultList) {
             listener.onPaySuccess();
         }
     }
 
-    public void addCancel() {
+    public void payCancel() {
         for (PayResultListener listener : resultList) {
             listener.onPayCancel();
         }
     }
 
-    public void addError() {
+    public void payError() {
         for (PayResultListener listener : resultList) {
             listener.onPayError();
         }

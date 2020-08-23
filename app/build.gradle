@@ -39,6 +39,7 @@ android {
 
 dependencies {
     implementation project(':commonlibrary')
+    implementation project(':commonbusiness')
     if (!isModule.toBoolean()) {
         implementation project(':home')
         implementation project(':live')
@@ -48,4 +49,6 @@ dependencies {
 
     }
     implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+
 }
